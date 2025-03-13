@@ -104,4 +104,4 @@ mongoose
 			console.log(`connected to port: ${PORT} and dataBase ${mongoURL}`);
 		});
 	})
-	.catch((err) => console.log('err'));
+	.catch((err) => console.log(err));
