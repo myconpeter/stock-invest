@@ -1,0 +1,243 @@
+<%- include ('./partials/cryptoHeader') %>
+
+				<section
+					class="bg-gray-200 rounded-tl-3xl mt-10 h-screen w-screen flex flex-col justify-center items-center">
+					<div>
+						<p class="mb-8">
+							Copy the wallet address make the Transaction
+						</p>
+					</div>
+					<div class="flex w-3/4 max-w-[23rem]">
+						<p class="mr-4 text-xs">Bitcoin Address :</p>
+						<input
+							id="address1"
+							type="text"
+							class="mr-2 bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+							value="bc1q7rnzh9zf5nl7hpam4pgzewd2pfpgtzm37ylqhv"
+							disabled
+							readonly />
+						<button
+							onclick="myFunction()"
+							class="text-white bg-blue-700 rounded-md py-1 px-5">
+							<span id="default-message1">Copy</span>
+							<span
+								id="success-message1"
+								class="hidden inline-flex items-center">
+								<svg
+									class="w-3 h-3 text-white me-1.5"
+									aria-hidden="true"
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 16 12">
+									<path
+										stroke="currentColor"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M1 5.917 5.724 10.5 15 1.5" />
+								</svg>
+								
+							</span>
+						</button>
+					</div>
+
+					<div class="flex w-3/4 mt-6 max-w-[23rem]">
+						<p class="mr-4 text-xs">Usdt Address :</p>
+						<input
+							id="address2"
+							type="text"
+							class="mr-2 bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+							value="0x7c2f8F6b9559F4ec71140Fee52fDC5b17ffb336E"
+							disabled
+							readonly />
+						<button
+							onclick="myFunction1()"
+							class="text-white bg-blue-700 rounded-md py-1 px-5">
+							<span id="default-message2">Copy</span>
+							<span
+								id="success-message2"
+								class="hidden inline-flex items-center">
+								<svg
+									class="w-3 h-3 text-white me-1.5"
+									aria-hidden="true"
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 16 12">
+									<path
+										stroke="currentColor"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M1 5.917 5.724 10.5 15 1.5" />
+								</svg>
+								
+							</span>
+						</button>
+					</div>
+
+					<div class="flex w-3/4 mt-6 max-w-[23rem]">
+						<p class="mr-4 text-xs">Ethereum Address :</p>
+						<input
+							id="address3"
+							type="text"
+							class="mr-2 bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+							value="0x7c2f8F6b9559F4ec71140Fee52fDC5b17ffb336E"
+							disabled
+							readonly />
+						<button
+							onclick="myFunction2()"
+							class="text-white bg-blue-700 rounded-md py-1 px-5">
+							<span id="default-message3">Copy</span>
+							<span
+								id="success-message3"
+								class="hidden inline-flex items-center">
+								<svg
+									class="w-3 h-3 text-white me-1.5"
+									aria-hidden="true"
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 16 12">
+									<path
+										stroke="currentColor"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M1 5.917 5.724 10.5 15 1.5" />
+								</svg>
+								
+							</span>
+						</button>
+					</div>
+
+			
+
+					<!-- the confirm payment -->
+					<a href="/payment-redirect">
+						<button class="mt-3 px-6 py-2 bg-green-400 rounded-md">
+							I have made Payment
+						</button>
+					</a>
+				</section>
+			</div>
+		</main>
+
+		<script>
+			/*Toggle dropdown list*/
+			function toggleDD(myDropMenu) {
+				document
+
+					.getElementById(myDropMenu)
+					.classList.toggle('invisible');
+			}
+			/*Filter dropdown options*/
+			function filterDD(myDropMenu, myDropMenuSearch) {
+				var input, filter, ul, li, a, i;
+				input = document.getElementById(myDropMenuSearch);
+				filter = input.value.toUpperCase();
+				div = document.getElementById(myDropMenu);
+				a = div.getElementsByTagName('a');
+				for (i = 0; i < a.length; i++) {
+					if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+						a[i].style.display = '';
+					} else {
+						a[i].style.display = 'none';
+					}
+				}
+			}
+			// Close the dropdown menu if the user clicks outside of it
+			window.onclick = function (event) {
+				if (
+					!event.target.matches('.drop-button') &&
+					!event.target.matches('.drop-search')
+				) {
+					var dropdowns =
+						document.getElementsByClassName('dropdownlist');
+					for (var i = 0; i < dropdowns.length; i++) {
+						var openDropdown = dropdowns[i];
+						if (!openDropdown.classList.contains('invisible')) {
+							openDropdown.classList.add('invisible');
+						}
+					}
+				}
+			};
+		</script>
+
+		<script>
+			function myFunction() {
+				const $defaultMessage =
+					document.getElementById('default-message1');
+				const $successMessage =
+					document.getElementById('success-message1');
+				var copyText = document.getElementById('address1');
+				copyText.select();
+				copyText.setSelectionRange(0, 99999);
+				$defaultMessage.classList.add('hidden');
+				$successMessage.classList.remove('hidden');
+
+				navigator.clipboard.writeText(copyText.value);
+
+				setTimeout(() => {
+					$defaultMessage.classList.remove('hidden');
+					$successMessage.classList.add('hidden');
+				}, 2000);
+			}
+
+			function myFunction1() {
+				const $defaultMessage =
+					document.getElementById('default-message2');
+				const $successMessage =
+					document.getElementById('success-message2');
+				var copyText = document.getElementById('address2');
+				copyText.select();
+				copyText.setSelectionRange(0, 99999);
+				$defaultMessage.classList.add('hidden');
+				$successMessage.classList.remove('hidden');
+
+				navigator.clipboard.writeText(copyText.value);
+
+				setTimeout(() => {
+					$defaultMessage.classList.remove('hidden');
+					$successMessage.classList.add('hidden');
+				}, 2000);
+			}
+
+			function myFunction2() {
+				const $defaultMessage =
+					document.getElementById('default-message3');
+				const $successMessage =
+					document.getElementById('success-message3');
+				var copyText = document.getElementById('address3');
+				copyText.select();
+				copyText.setSelectionRange(0, 99999);
+				$defaultMessage.classList.add('hidden');
+				$successMessage.classList.remove('hidden');
+
+				navigator.clipboard.writeText(copyText.value);
+
+				setTimeout(() => {
+					$defaultMessage.classList.remove('hidden');
+					$successMessage.classList.add('hidden');
+				}, 2000);
+			}
+
+			function myFunction3() {
+				const $defaultMessage =
+					document.getElementById('default-message4');
+				const $successMessage =
+					document.getElementById('success-message4');
+				var copyText = document.getElementById('address4');
+				copyText.select();
+				copyText.setSelectionRange(0, 99999);
+				$defaultMessage.classList.add('hidden');
+				$successMessage.classList.remove('hidden');
+
+				navigator.clipboard.writeText(copyText.value);
+
+				setTimeout(() => {
+					$defaultMessage.classList.remove('hidden');
+					$successMessage.classList.add('hidden');
+				}, 2000);
+			}
+		</script>
+	</body>
+</html>

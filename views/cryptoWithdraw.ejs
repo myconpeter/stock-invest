@@ -1,0 +1,98 @@
+<%- include ('./partials/cryptoHeader') %>
+
+				<section
+					class="bg-gray-200 rounded-tl-3xl mt-10 h-screen w-screen">
+					<div>
+						<div>
+							<div
+								class="max-w-md mx-auto mt-10 bg-white shadow-lg rounded-lg overflow-hidden">
+								<div
+									class="text-2xl py-4 px-6 bg-gray-900 text-white text-center font-bold uppercase">
+									Withdrawal
+								</div>
+								<form method="get" action="/cryptoProfile" class="py-4 px-6">
+									<div class="mb-4">
+										<label
+											class="block text-gray-700 font-bold mb-2"
+											for="email">
+											Email
+										</label>
+										<input
+											class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+											id="email"
+											type="email"
+											placeholder="Enter your email" />
+									</div>
+
+									<div class="mb-4">
+										<label
+											class="block text-gray-700 font-bold mb-2"
+											for="amount">
+											Amount
+										</label>
+										<input
+											class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+											id="amount"
+											type="number"
+											placeholder="Enter Amount" />
+									</div>
+
+									<div class="mb-4">
+										<label
+											class="block text-gray-700 font-bold mb-2"
+											for="service">
+											Payment Method
+										</label>
+										<select
+											class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+											id="service"
+											name="service">
+											<option value="">
+												Select a Payment Method
+											</option>
+											<option value="haircut">
+												Bitcoin
+											</option>
+											<option value="coloring">
+												Ethereum
+											</option>
+											<option value="styling">
+												Usdt
+											</option>
+											<option value="facial">
+												LiteCoin
+											</option>
+										</select>
+									</div>
+
+									<div class="mb-4">
+										<label
+											class="block text-gray-700 font-bold mb-2"
+											for="text">
+											Wallet Address
+										</label>
+										<input
+											class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+											id="text"
+											type="text"
+											placeholder="Enter your Wallet Address" />
+									</div>
+
+									<div
+										class="flex items-center justify-center mb-4">
+										<button
+											class="bg-gray-900 text-white py-2 px-4 rounded hover:bg-gray-800 focus:outline-none focus:shadow-outline"
+											type="submit">
+											Make Withdrawal
+										</button>
+									</div>
+								</form>
+							</div>
+							​
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
+
+		<%- include ('./partials/cryptoFooter') %>	

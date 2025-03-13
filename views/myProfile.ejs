@@ -1,0 +1,101 @@
+<%- include ('./partials/cryptoHeader') %>
+
+				<section
+					class="bg-gray-200 rounded-tl-3xl mt-10 h-screen w-screen">
+					<div>
+						<div>
+							<div
+								class="max-w-md mx-auto mt-10 bg-white shadow-lg rounded-lg overflow-hidden">
+								<div
+									class="text-2xl py-4 px-6 bg-gray-900 text-white text-center font-bold uppercase">
+									User Profile
+								</div>
+								<form method="get" action="#" class="py-4 px-6">
+									<div class="mb-4">
+										<label
+											class="block text-gray-700 font-bold mb-2"
+											for="email">
+											Email
+										</label>
+										<input
+											class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+											id="email"
+											type="email"
+                                            value="<%= currentUser.email %>"
+                                            readonly
+											placeholder="Enter your email" />
+									</div>
+
+									<div class="mb-4">
+										<label
+											class="block text-gray-700 font-bold mb-2"
+											for="amount">
+											Full Name
+										</label>
+										<input
+											class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+											id="fullname"
+											type="text"
+                                            value="<%= currentUser.fullname %>"
+                                            readonly
+											placeholder="Enter Amount" />
+									</div>
+
+									<div class="mb-4">
+										<label
+											class="block text-gray-700 font-bold mb-2"
+											for="amount">
+											Phone Number
+										</label>
+										<input
+											class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+											id="phone"
+											type="text"
+                                            value="<%= currentUser.telephone %>"
+                                            readonly
+											placeholder="Enter Amount" />
+									</div>
+
+									<div class="mb-4">
+										<label
+											class="block text-gray-700 font-bold mb-2"
+											for="amount">
+											Date of Birth
+										</label>
+										<input
+											class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+											id="fullname"
+											type="text"
+                                            value="<%= currentUser.DOB %>"
+                                            readonly
+											placeholder="Enter Amount" />
+									</div>
+
+									
+
+									<div class="mb-4">
+										<label
+											class="block text-gray-700 font-bold mb-2"
+											for="text">
+											Security Number
+										</label>
+										<input
+											class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+											id="text"
+											type="text"
+                                            value="<%= currentUser.security %>"
+                                            readonly
+											placeholder="Enter your Wallet Address" />
+									</div>
+
+								
+								</form>
+							</div>
+							​
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
+
+		<%- include ('./partials/cryptoFooter') %>	

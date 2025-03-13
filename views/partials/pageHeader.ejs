@@ -1,0 +1,539 @@
+<!DOCTYPE >
+
+<html>
+	<meta
+		http-equiv="content-type"
+		content="text/html;charset=utf-8" />
+	<head>
+		<meta
+			http-equiv="Content-Type"
+			content="text/html; charset=UTF-8" />
+		<meta
+			http-equiv="x-ua-compatible"
+			content="ie=edge" />
+
+		<title>CryptoApex</title>
+		<link
+			rel="apple-touch-icon"
+			href="img/loog.png" />
+		<!--  -->
+
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1" />
+		<link
+			rel="stylesheet"
+			href="index_files/css-normalize.css" />
+		<link
+			rel="stylesheet"
+			href="index_files/font-awesome.css" />
+		<link
+			rel="stylesheet"
+			href="index_files/aos.css" />
+		<link
+			rel="stylesheet"
+			href="index_files/owl-owl.carousel.css" />
+		<link
+			rel="stylesheet"
+			href="index_files/css-core.css" />
+		<script
+			src="index_files/l.js"
+			async=""></script>
+		<link
+			href="css/bootstrap.min7eda.css"
+			rel="stylesheet"
+			type="text/css" />
+		<script
+			src="index_files/client.js"
+			type="text/javascript"
+			async=""></script>
+		<link
+			href="index_files/client_default.css"
+			type="text/css"
+			rel="stylesheet" />
+
+		<style type="text/css">
+			.bonus_area {
+				position: fixed;
+				top: 50%;
+				right: 0;
+				width: 180px;
+				border-radius: 5px 0 0 5px;
+				z-index: 99999998;
+				-webkit-transform: translateY(-50%) translateX(100%);
+				-ms-transform: translateY(-50%) translateX(100%);
+				transform: translateY(-50%) translateX(100%);
+				-webkit-transition: all 1s ease;
+				-o-transition: all 1s ease;
+				transition: all 1s ease;
+			}
+			.bonus_area.show {
+				-webkit-transform: translateY(-50%) translateX(0%);
+				-ms-transform: translateY(-50%) translateX(0%);
+				transform: translateY(-50%) translateX(0%);
+				-webkit-box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+				box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+			}
+			.bonus_area .inner_area {
+				background: -webkit-gradient(
+					linear,
+					left bottom,
+					left top,
+					from(#176af3),
+					to(#080f20)
+				);
+				background: -webkit-linear-gradient(
+					bottom,
+					#176af3 0%,
+					#080f20 100%
+				);
+				background: -o-linear-gradient(
+					bottom,
+					#176af3 0%,
+					#080f20 100%
+				);
+				background: linear-gradient(
+					to bottom,
+					#080f20 0%,
+					#176af3 100%
+				);
+				border-radius: 5px 0 0 0;
+				padding: 18px 0 23px;
+				position: relative;
+				text-align: center;
+			}
+			.bonus_area .inner_area .icon {
+				display: block;
+				padding-left: 33px;
+				margin-bottom: 15px;
+				text-align: left;
+			}
+			.inner_area .close-btn {
+				position: absolute;
+
+				height: 20px;
+				background: none;
+				outline: none;
+				border: none;
+				z-index: 30;
+				top: 28px;
+				width: 10px;
+				height: 15px;
+				right: 20px;
+			}
+			.inner_area .title {
+				display: block;
+				font-size: 23px;
+				text-transform: uppercase;
+				font-weight: bold;
+				color: #fff;
+				margin-bottom: 0px !important;
+			}
+
+			.inner_area .price {
+				display: block;
+				padding-bottom: 6px;
+				color: #fff;
+				font-size: 38px;
+				margin-left: -14px;
+				line-height: 40px;
+			}
+			.inner_area .price em {
+				display: inline-block;
+				font-size: 16px;
+				line-height: 19px;
+				vertical-align: top;
+				font-weight: normal;
+				font-style: normal;
+				padding-top: 10px;
+				padding-right: 4px;
+			}
+			.inner_area .subtitle {
+				display: block;
+				text-transform: uppercase;
+				font-size: 10px;
+				color: #fff;
+				font-weight: bold;
+				letter-spacing: 5px;
+			}
+			.bonus_area .get-btn {
+				-webkit-transition: all 0.3s ease;
+				-o-transition: all 0.3s ease;
+				transition: all 0.3s ease;
+				display: block;
+				width: 100%;
+				background-color: #176af3;
+				color: #fff;
+				text-align: center;
+				padding: 20px 0 20px;
+				border-radius: 0 0 0 5px;
+			}
+			.bonus_area .get-btn:hover {
+				background: #fff;
+				text-decoration: none;
+				color: #e6922e;
+				-webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+				box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+			}
+			.global-close-btn:before,
+			.global-close-btn:after {
+				content: '';
+				display: block;
+				clear: both;
+				height: 2px;
+				background-color: #fff;
+				-webkit-transform: rotate(45deg);
+				-ms-transform: rotate(45deg);
+				transform: rotate(45deg);
+				position: absolute;
+				left: 0;
+				width: 135%;
+				top: 0;
+				margin-top: 8px;
+				margin-left: -3px;
+				-webkit-transition: all 0.3s ease;
+				-o-transition: all 0.3s ease;
+				transition: all 0.3s ease;
+			}
+			.global-close-btn:after {
+				-webkit-transform: rotate(-45deg);
+				-ms-transform: rotate(-45deg);
+				transform: rotate(-45deg);
+			}
+		</style>
+		<style type="text/css">
+			.goog-te-banner-frame.skiptranslate {
+				display: none !important;
+			}
+			body {
+				top: 0px !important;
+			}
+			.goog-te-combo {
+				background-color: transparent;
+				background-image: url(img/translator.png);
+				background-size: 20px;
+				background-repeat: no-repeat;
+				background-position: center left;
+				border: 2px solid #fff;
+				border-radius: 25px;
+				box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+				color: #cac4c4;
+				font-size: 15px;
+				padding-left: 24px;
+				padding-top: 5px;
+				padding-bottom: 5px;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				width: 45px;
+			}
+			div#google_translate_element {
+				height: 35px;
+				width: 45px;
+				overflow: hidden;
+				margin-left: 10px;
+				position: absolute;
+				top: 18px;
+				right: 310px;
+				z-index: 0;
+			}
+			@media (max-width: 760px) {
+				div#google_translate_element {
+					height: 35px;
+					width: 45px;
+					overflow: hidden;
+					margin-left: 10px;
+					position: absolute;
+					top: 13px;
+					right: 60px;
+					z-index: 1;
+				}
+			}
+		</style>
+	</head>
+	<body
+		data-aos-easing="ease"
+		data-aos-duration="800"
+		data-aos-delay="0">
+		<!--Start of Tawk.to Script-->
+		<script type="text/javascript">
+			var Tawk_API = Tawk_API || {},
+				Tawk_LoadStart = new Date();
+			(function () {
+				var s1 = document.createElement('script'),
+					s0 = document.getElementsByTagName('script')[0];
+				s1.async = true;
+				s1.src =
+					'https://embed.tawk.to/667cd1bf9d7f358570d3c7a9/1i1bp6l34';
+				s1.charset = 'UTF-8';
+				s1.setAttribute('crossorigin', '*');
+				s0.parentNode.insertBefore(s1, s0);
+			})();
+		</script>
+		<!--End of Tawk.to Script-->
+
+		<form
+			method="post"
+			action="#"
+			id="form1">
+			<div class="aspNetHidden">
+				<input
+					type="hidden"
+					name="__VIEWSTATE"
+					id="__VIEWSTATE"
+					value="/wEPDwUKMTY1NDU2MTA1MmRkia+xZT9WYDgG+rdSxJU5wQoI+O/IzlAWE3GGbf+mgwE=" />
+			</div>
+
+			<div class="aspNetHidden">
+				<input
+					type="hidden"
+					name="__VIEWSTATEGENERATOR"
+					id="__VIEWSTATEGENERATOR"
+					value="CA0B0334" />
+			</div>
+
+			<header class="tm-main-header">
+				<div class="tm-container flx logo-row">
+					<div class="tm-logo-holder">
+						<a
+							href="/"
+							style="
+								display: flex;
+								align-items: center;
+								color: white;
+								text-decoration: none;
+							">
+							<img
+								src="img/loog.png"
+								alt="CryptoApex"
+								height="50"
+								width="50" />
+							<h2 style="margin-left: 5px">CryptoApex</h2>
+						</a>
+					</div>
+					<% if(!currentUser){ %>
+					<div class="top-lang">
+						<a
+							href="/cryptoLogin"
+							class="btn-rounded white-line"
+							>Log In</a
+						>
+						<a
+							href="/cryptoRegister"
+							class="btn-rounded white"
+							>Get Started</a
+						>
+					</div>
+					<% } else { %> <% } %>
+				</div>
+
+				<div class="tm-container flx nav-row">
+					<nav>
+						<div class="tm-container">
+							<ul>
+								<li>
+									<a href="/">Home</a>
+								</li>
+								<li>
+									<a href="/about">About Us</a>
+								</li>
+								<li>
+									<a href="/contact">Contact Us</a>
+								</li>
+
+								<% if(!currentUser){ %>
+								<li>
+									<a href="/cryptoLogin">Login Now</a>
+								</li>
+								<li>
+									<a href="/cryptoRegister">Register Now</a>
+								</li>
+								<% } else { %>
+
+								<li>
+									<a href="/cryptoProfile">Dashboard</a>
+								</li>
+								<% } %>
+								<li class="has-submenu">
+									<a href="javascript:void(0);">Company</a>
+									<ul class="tm-submenu">
+										<li>
+											<a href="/about">About Us</a>
+										</li>
+										<li>
+											<a href="/contact">Contact Us</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+
+				<div class="sticky-header-nav-prime">
+					<div class="flx">
+						<div class="responsive-logo-holder">
+							<a
+								href="/"
+								style="
+									display: flex;
+									align-items: center;
+									color: white;
+									text-decoration: none;
+								">
+								<img
+									src="img/loog.png"
+									alt="CryptoApex"
+									height="30"
+									width="30" />
+								<h2 style="margin-left: 5px">CryptoApex</h2>
+							</a>
+						</div>
+
+						<nav class="mobile-nav">
+							<div class="mobile-menu-items-wraper">
+								<ul>
+									<li>
+										<a href="/">Home</a>
+									</li>
+									<li>
+										<a href="/about">About Us</a>
+									</li>
+									<li>
+										<a href="/contact">Contact Us</a>
+									</li>
+									<li>
+										<a href="/cryptoLogin">Login Now</a>
+									</li>
+									<li>
+										<a href="/cryptoRegister"
+											>Register Now</a
+										>
+									</li>
+									<li class="has-submenu">
+										<a href="javascript:void(0);"
+											>Company</a
+										>
+										<ul class="tm-submenu">
+											<li>
+												<a href="/about">About Us</a>
+											</li>
+											<li>
+												<a href="/contact"
+													>Contact Us</a
+												>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</nav>
+						<div class="tm-btn-holder">
+							<a
+								href="/cryptoRegister"
+								target="_blank"
+								class="btn-rounded white get-started-btn"
+								>Get Started</a
+							>
+						</div>
+					</div>
+				</div>
+				<div class="sticky-header-nav">
+					<div class="flx">
+						<div class="responsive-logo-holder">
+							<a
+								href="/"
+								style="
+									display: flex;
+									align-items: center;
+									color: white;
+									text-decoration: none;
+								">
+								<img
+									src="img/loog.png"
+									alt="CryptoApex"
+									height="30"
+									width="30" />
+								<h2 style="margin-left: 5px">CryptoApex</h2>
+							</a>
+						</div>
+						<nav class="mobile-nav">
+							<span class="close-menu"> X </span>
+							<div class="tm-btn-wrapper tm-pt-40 t-al-c">
+								<a
+									href="/cryptoRegister"
+									target="_blank"
+									class="btn-rounded white get-started-btn t-dn m-dib"
+									>Get Started</a
+								>
+
+								<a
+									href="cryptoLogin"
+									target="_blank"
+									class="btn-rounded white-line t-dn m-dib"
+									>Log In</a
+								>
+							</div>
+
+							<div class="mobile-menu-items-wraper tm-pt-40">
+								<ul>
+									<li>
+										<a href="/">Home</a>
+									</li>
+									<li>
+										<a href="/about">About Us</a>
+									</li>
+									<li>
+										<a href="/contact">Contact Us</a>
+									</li>
+									<li>
+										<a href="/cryptoLogin">Login Now</a>
+									</li>
+									<li>
+										<a href="/cryptoRegister"
+											>Register Now</a
+										>
+									</li>
+									<li class="has-submenu">
+										<a href="javascript:void(0);"
+											>Company</a
+										>
+										<ul class="tm-submenu">
+											<li>
+												<a href="/about">About Us</a>
+											</li>
+											<li>
+												<a href="/contact"
+													>Contact Us</a
+												>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</nav>
+						<div class="tm-btn-holder">
+							<a
+								href="/cryptoRegister"
+								target="_blank"
+								class="btn-rounded white get-started-btn t-dib m-dn"
+								>Get Started</a
+							>
+							<a
+								href="/cryptoLogin"
+								target="_blank"
+								class="btn-rounded white-line t-dib m-dn"
+								>Portal</a
+							>
+
+							<span class="menu-trigger">
+								<span></span>
+								<span></span>
+								<span></span>
+							</span>
+						</div>
+					</div>
+				</div>
+			</header>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,170 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+
+		<title>ADMIN</title>
+
+		<style>
+			table {
+				border: 1px solid #ccc;
+				border-collapse: collapse;
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				table-layout: fixed;
+			}
+
+			table caption {
+				font-size: 1.5em;
+				margin: 0.5em 0 0.75em;
+			}
+
+			table tr {
+				background-color: #f8f8f8;
+				border: 1px solid #ddd;
+				padding: 0.35em;
+			}
+
+			table th,
+			table td {
+				padding: 0.625em;
+				text-align: center;
+			}
+
+			table th {
+				font-size: 0.85em;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+			}
+
+			@media screen and (max-width: 600px) {
+				table {
+					border: 0;
+				}
+
+				table caption {
+					font-size: 1.3em;
+				}
+
+				table thead {
+					border: none;
+					clip: rect(0 0 0 0);
+					height: 1px;
+					margin: -1px;
+					overflow: hidden;
+					padding: 0;
+					position: absolute;
+					width: 1px;
+				}
+
+				table tr {
+					border-bottom: 3px solid #ddd;
+					display: block;
+					margin-bottom: 0.625em;
+				}
+
+				table td {
+					border-bottom: 1px solid #ddd;
+					display: block;
+					font-size: 0.8em;
+					text-align: right;
+				}
+
+				table td::before {
+					/*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+					content: attr(data-label);
+					float: left;
+					font-weight: bold;
+					text-transform: uppercase;
+				}
+
+				table td:last-child {
+					border-bottom: 0;
+				}
+			}
+
+			/* general styling */
+			body {
+				font-family: 'Open Sans', sans-serif;
+				line-height: 1.25;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="table-wrapper">
+			<table>
+				<caption>
+					ALL CRYPTO USERS
+				</caption>
+
+				<div class="">
+					<a
+						href="/adminLanding"
+						style="
+							text-align: center;
+							margin-left: 5px;
+							background-color: blue;
+							padding: 10px 30px;
+							border-radius: 10px;
+							color: white;
+							text-decoration: none;
+						">
+						Back
+					</a>
+				</div>
+				<%- include ('./partials/messages') %>
+				<thead>
+					<tr>
+						<th scope="col">Full Name</th>
+						<th scope="col">Email</th>
+						<th scope="col">Telephone</th>
+
+						<th scope="col">UPDATE</th>
+						<th scope="col">DELETE</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% tickets.forEach(function(ticket){ %>
+					<tr>
+						<td><%= ticket.fullname %></td>
+						<td><%= ticket.email %></td>
+						<td><%= ticket.telephone %></td>
+						<td>
+							<a
+								href="/edit-cryptouser/<%= ticket._id %>"
+								style="
+									background-color: darkgreen;
+									color: white;
+									font-size: 20px;
+									border-radius: 5px;
+									padding: 5px 10px;
+								"
+								>Edit</a
+							>
+						</td>
+						<td>
+							<a
+								href="/delete-cryptouser/<%= ticket._id %>"
+								style="
+									background-color: red;
+									color: white;
+									font-size: 20px;
+									border-radius: 5px;
+									padding: 5px 10px;
+								"
+								>Delete</a
+							>
+						</td>
+					</tr>
+					<% }); %>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>
