@@ -13,7 +13,7 @@ dotenv.config();
 
 // crypto-apex is the new name
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000
 
 //passport config:
 require('./config/cryptoPassport');
