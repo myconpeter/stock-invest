@@ -21,6 +21,8 @@
 											class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 											id="email"
 											type="email"
+											value="<%= currentUser.email %>"
+                                            readonly
 											placeholder="Enter your email" />
 									</div>
 
@@ -60,7 +62,7 @@
 												Usdt
 											</option>
 											<option value="facial">
-												LiteCoin
+												Card Payment
 											</option>
 										</select>
 									</div>
@@ -69,13 +71,13 @@
 										<label
 											class="block text-gray-700 font-bold mb-2"
 											for="text">
-											Wallet Address
+											Wallet / Card 
 										</label>
 										<input
 											class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 											id="text"
 											type="text"
-											placeholder="Enter your Wallet Address" />
+											placeholder="Enter your Wallet or Card Details" />
 									</div>
 
 									<div
