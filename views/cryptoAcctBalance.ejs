@@ -1,0 +1,269 @@
+<%- include ('./partials/cryptoHeader') %>
+
+				<section
+					class="bg-gray-200 rounded-tl-3xl mt-10 min-h-screen w-screen">
+					<div>
+						<div class="text-3xl text-center font-semibold mt-10">
+							<h1>Balance History</h1>
+						</div>
+						<div>
+							<% if(currentUser.accountStatus === 'Not Active'){ %>
+							<p class="text-gray-400 mt-10 text-center">
+								No Transaction Found
+							</p>
+
+							<% } else { %>
+
+							<div class="flex flex-col">
+								<div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+									<div
+										class="inline-block min-w-full py-2 sm:px-6">
+										<div class="overflow-hidden">
+											<table
+												class="min-w-full text-left text-sm font-light text-black">
+												<thead
+													class="border-b border-neutral-200 font-medium dark:border-white/10">
+													<tr>
+														
+														<th
+															scope="col"
+															class="px-6 py-4">
+															Transaction Type / ID
+														</th>
+														<th
+															scope="col"
+															class="px-6 py-4">
+															Amount
+														</th>
+														<th
+															scope="col"
+															class="px-6 py-4">
+															Status
+														</th>
+
+														<th
+														scope="col"
+														class="px-6 py-4">
+														Date
+													</th>
+													</tr>
+												</thead>
+												<tbody>
+													
+												
+											
+													<tr
+														class="border-b border-neutral-200 dark:border-white/10">
+														
+														<td
+															class="whitespace-nowrap px-6 py-4 text-xs">
+															BITCOIN-PURCHASE-MN2201 MN CARD8575
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															$1150
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															successful
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															2023-07-23
+														</td>
+													</tr>
+													<tr
+														class="border-b border-neutral-200 dark:border-white/10">
+														
+														<td
+															class="whitespace-nowrap px-6 py-4 text-xs">
+															BITCOIN-PURCHASE-MNEWQF MN CARD12QW
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															$1211.34
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															successful
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															2023-06-20
+														</td>
+													</tr>
+													<tr
+														class="border-b border-neutral-200 dark:border-white/10">
+														
+														<td
+															class="whitespace-nowrap px-6 py-4 text-xs">
+															BITCOIN-PURCHASE-MN23Q02 MN CARD0983
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															$1500.44
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															successful
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															2023-05-28
+														</td>
+													</tr>
+													<tr
+														class="border-b border-neutral-200 dark:border-white/10">
+														
+														<td
+															class="whitespace-nowrap px-6 py-4 text-xs">
+															DEPOSIT-MN22301 MN CARD8ASD4
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															$1200.73
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															successful
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															2023-04-30
+														</td>
+													</tr>
+													<tr
+														class="border-b border-neutral-200 dark:border-white/10">
+														
+														<td
+															class="whitespace-nowrap px-6 py-4 text-xs">
+															BITCOIN-PURCHASE-MNFed3 MN CARD0987
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															$900.75
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															successful
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															2023-03-14
+														</td>
+													</tr>
+													<tr
+														class="border-b border-neutral-200 dark:border-white/10">
+														
+														<td
+															class="whitespace-nowrap px-6 py-4 text-xs">
+															DEPOSIT-MN2201 MN CARD7353
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															$1502.31
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															successful
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															2023-02-25
+														</td>
+													</tr>
+													<tr
+														class="border-b border-neutral-200 dark:border-white/10">
+														
+														<td
+															class="whitespace-nowrap px-6 py-4 text-xs">
+															DEPOSIT-MN23172 MN CARDeds2
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															$1021.53
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															successful
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															2023-01-15
+														</td>
+													</tr>
+													<tr
+														class="border-b border-neutral-200 dark:border-white/10">
+														
+														<td
+															class="whitespace-nowrap px-6 py-4 text-xs">
+															DEPOSIT-MN2231 MN CARD8dw75
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															$112.56
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															successful
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															2022-12-19
+														</td>
+													</tr>
+													<tr
+														class="border-b border-neutral-200 dark:border-white/10">
+														
+														<td
+															class="whitespace-nowrap px-6 py-4 text-xs">
+															WITHDRAWAL-MN2201 MN CARD8575
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															$1200
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															successful
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															2022-11-26
+														</td>
+													</tr>
+													<tr
+														class="border-b border-neutral-200 dark:border-white/10">
+														
+														<td
+															class="whitespace-nowrap px-6 py-4 text-xs">
+															DEPOSIT-WWW.RESERVAT855-9562201 MN CARD8575
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															$700
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															successful
+														</td>
+														<td
+															class="whitespace-nowrap px-6 py-4">
+															2022-10-20
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+							<% } %>
+							​
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
+
+		<%- include ('./partials/cryptoFooter') %>	

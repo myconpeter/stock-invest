@@ -19,4 +19,7 @@ router.get('/cryptoTransaction', ensureAuthenticated, async (req, res) => {
 router.get('/cryptoHelp', ensureAuthenticated, async (req, res) => {
 	res.render('cryptoHelp');
 });
+router.get('/acctBalance', ensureAuthenticated, async (req, res) => {
+	res.render('cryptoAcctBalance');
+});
 module.exports = router;
