@@ -41,8 +41,8 @@ app.set('view engine', 'ejs');
 app.use(
 	session({
 		secret: 'mycon',
-		resave: true,
-		saveUninitialized: true,
+		resave: false,
+		saveUninitialized: false,
 	})
 );
 

@@ -5,47 +5,44 @@ const passport = require('passport');
 
 passport.use(
 	'userLocal',
-	new LocalStrategy(
-		{ usernameField: 'email' },
-		async (email, password, done) => {
-			try {
-				const user = await cryptoUser.findOne({ email });
+	new LocalStrategy({ usernameField: 'email' }, async (email, password, done) => {
+		try {
+			const user = await cryptoUser.findOne({ email });
 
-				if (!user) {
-					return done(null, false, {
-						message: 'This Email is not registered',
-					});
-				}
-
-				const isMatch = await bcrypt.compare(password, user.password);
-
-				if (isMatch) {
-					return done(null, user);
-				} else {
-					return done(null, false, {
-						message: 'Incorrect password!!!',
-					});
-				}
-			} catch (err) {
-				return done(err);
+			if (!user) {
+				return done(null, false, {
+					message: 'This Email is not registered',
+				});
 			}
+
+			const isMatch = await bcrypt.compare(password, user.password);
+
+			if (isMatch) {
+				return done(null, user);
+			} else {
+				return done(null, false, {
+					message: 'Incorrect password!!!',
+				});
+			}
+		} catch (err) {
+			return done(err);
 		}
-	)
+	})
 );
 
-passport.serializeUser(async (user, done) => {
-	try {
-		done(null, user.id);
-	} catch (err) {
-		done(err);
-	}
+passport.serializeUser((user, done) => {
+	done(null, user.id); // No async/await needed here
 });
 
 passport.deserializeUser(async (id, done) => {
 	try {
 		const user = await cryptoUser.findById(id);
+		if (!user) {
+			return done(null, false); // User not found
+		}
 		done(null, user);
 	} catch (err) {
-		done(err);
+		console.error('Error in deserialization:', err);
+		done(err, null);
 	}
 });
