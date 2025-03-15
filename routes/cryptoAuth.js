@@ -24,6 +24,7 @@ router.post('/login', (req, res, next) => {
 		const otp = generateOTP();
 		req.session.otp = otp;
 		req.session.userId = user.id;
+		// console.log('user email', user.email);
 
 		// Send OTP via email
 		await sendOTP(user.email, otp);
@@ -36,7 +37,6 @@ router.post('/login', (req, res, next) => {
 router.post('/confirm', async (req, res) => {
 	const { otp } = req.body;
 	const userId = req.session.userId;
-
 
 	if (!userId || !req.session.otp) {
 		req.flash('error_msg', 'Session expired. Please login again.');
@@ -61,8 +61,6 @@ router.post('/confirm', async (req, res) => {
 					req.flash('error_msg', 'Authentication error. Try again.');
 					return res.redirect('/login');
 				}
-
-				
 
 				// Clear OTP from session
 				delete req.session.otp;

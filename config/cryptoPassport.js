@@ -7,7 +7,12 @@ passport.use(
 	'userLocal',
 	new LocalStrategy({ usernameField: 'email' }, async (email, password, done) => {
 		try {
-			const user = await cryptoUser.findOne({ email });
+			// console.log(email);
+			const small = email.toLowerCase();
+			// console.log(small);
+			
+			const user = await cryptoUser.findOne({ email: small });
+			// console.log(user);
 
 			if (!user) {
 				return done(null, false, {
