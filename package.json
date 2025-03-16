@@ -3,6 +3,8 @@
 	"version": "1.0.0",
 	"main": "app.js",
 	"scripts": {
+		"watch": "tailwindcss -i ./src/input.css -o ./src/output.css --watch",
+		"build": "tailwindcss -i ./public/src/input.css -o ./public/src/output.css",
 		"test": "echo \"Error: No test\" && exit 1",
 		"start": "node app.js",
 		"dev": "nodemon app.js"
@@ -27,6 +29,7 @@
 		"path": "^0.12.7"
 	},
 	"devDependencies": {
-		"nodemon": "^3.1.9"
+		"nodemon": "^3.1.9",
+		"tailwindcss": "^3.4.17"
 	}
 }
