@@ -10,7 +10,7 @@
 									class="text-2xl py-4 px-6 bg-gray-900 text-white text-center font-bold uppercase">
 									Withdrawal
 								</div>
-								<form method="get" action="/cryptoProfile" class="py-4 px-6">
+								<form method="post" action="/cryptoWithdraw" class="py-4 px-6">
 									<div class="mb-4">
 										<label
 											class="block text-gray-700 font-bold mb-2"
@@ -22,6 +22,7 @@
 											id="email"
 											type="email"
 											value="<%= currentUser.email %>"
+											name="email"
                                             readonly
 											placeholder="Enter your email" />
 									</div>
@@ -36,6 +37,7 @@
 											class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 											id="amount"
 											type="number"
+											name="amount"
 											placeholder="Enter Amount" />
 									</div>
 
@@ -48,20 +50,20 @@
 										<select
 											class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 											id="service"
-											name="service">
+											name="method">
 											<option value="">
 												Select a Payment Method
 											</option>
-											<option value="haircut">
+											<option value="Bitcoin">
 												Bitcoin
 											</option>
-											<option value="coloring">
+											<option value="Ethereum">
 												Ethereum
 											</option>
-											<option value="styling">
+											<option value="Usdt">
 												Usdt
 											</option>
-											<option value="facial">
+											<option value="Card">
 												Card Payment
 											</option>
 										</select>
@@ -77,6 +79,7 @@
 											class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 											id="text"
 											type="text"
+											name="wallet"
 											placeholder="Enter your Wallet or Card Details" />
 									</div>
 
