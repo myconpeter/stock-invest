@@ -26,7 +26,7 @@ router.post('/cryptoWithdraw', ensureAuthenticated, async (req, res) => {
 		});
 
 		await newTrans.save();
-		req.flash('success_msg', 'Withdrawal is Pending, Please wait');
+		req.flash('success_msg', 'Withdrawal is Pending, Please Wait for confirmation');
 		res.redirect('/cryptoProfile');
 	} catch (error) {}
 });

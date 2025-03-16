@@ -17,15 +17,17 @@ router.get('/cryptoInvest', ensureAuthenticated, async (req, res) => {
 });
 router.get('/cryptoTransaction', ensureAuthenticated, async (req, res) => {
 	try {
-		// Fetch the logged-in user's transactions
-		const transactions = await Transact.find({ email: req.user.email }).lean();
+		// Fetch the logged-in user's transactions and sort by 'createdAt' in descending order
+		const transactions = await Transact.find({ email: req.user.email })
+			.sort({ createdAt: -1 }) // -1 sorts in descending order
+			.lean();
 
 		// Render the EJS view and pass transaction data
 		res.render('cryptoTransaction', { transactions });
 	} catch (error) {
 		console.error('Error fetching transactions:', error);
 		req.flash('error_msg', 'Something went wrong. Try again.');
-		res.redirect('/dashboard'); // Redirect to a safer page if there's an error
+		res.redirect('/cryptoWithdraw'); // Redirect to a safer page if there's an error
 	}
 });
 
