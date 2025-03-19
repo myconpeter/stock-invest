@@ -1,39 +1,25 @@
 
 <%- include ('./partials/cryptoHeader') %>			
 				<section>
+
 					<div
 						id="main"
 						class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
 
+
 						<!-- <%- include ('./partials/messages') %> -->
 						<div class="bg-[#03030a] pt-3">
+						
+							
+							
 							<div
 								class="rounded-tl-3xl bg-white p-4 shadow text-2xl text-white">
-								<div class="alert text-xs md:text-sm mt-8">
+								<div class="text-lg md:text-lg mt-3">
 
 									<%- include ('./partials/messages') %>
 								</div>
 
-								<script>
-								  // Wait for the page to load
-								  document.addEventListener("DOMContentLoaded", function () {
-									// Find the message container
-									const messageContainer = document.querySelector(".alert"); // Adjust selector based on your HTML
-								
-									if (messageContainer) {
-									  // Set a timeout to remove the message after 3 seconds
-									  setTimeout(() => {
-										messageContainer.style.transition = "opacity 0.5s";
-										messageContainer.style.opacity = "0";
-								
-										// Remove the element after fade-out effect
-										setTimeout(() => {
-										  messageContainer.remove();
-										}, 500);
-									  }, 3000);
-									}
-								  });
-								</script>
+							
 																<h1 class="pl-2 mt-5 text-black font-semibold">
 									Welcome, <%= currentUser.fullname %>!
 								</h1>
