@@ -4,6 +4,9 @@ const CryptoUser = require('../models/cryptoUser');
 
 const passport = require('../config/AdminPassport');
 const { ensureAuthenticated } = require('../config/auth');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 //login get
 
@@ -14,15 +17,13 @@ router.get('/admin', async (req, res) => {
 //login post
 
 router.post('/admin-login', (req, res, next) => {
-	passport.authenticate('adminLocal', {
-		successRedirect: '/adminLanding',
-		failureRedirect: '/admin',
-		failureFlash: true,
-	})(req, res, next);
-});
+	const { pin } = req.body;
 
-router.get('/adminLanding', async (req, res) => {
-	res.render('adminLanding');
+	if (pin !== process.env.ADMIN_PIN) {
+		req.flash('error_msg', 'Incorrect Admin Pin');
+		return res.redirect('/admin');
+	}
+	return res.redirect('/crypto-user');
 });
 
 router.get('/crypto-user', async (req, res) => {
@@ -102,13 +103,7 @@ router.get('/delete-cryptouser/:id', async (req, res) => {
 // Admin Logout
 
 router.get('/admin-logout', (req, res) => {
-	req.logout(function (err) {
-		if (err) {
-			console.error(err);
-		}
-		req.flash('success_msg', 'You have successfully logged out');
-		res.redirect('/');
-	});
+	res.redirect('/');
 });
 
 router.get('/payment-redirect', ensureAuthenticated, async (req, res) => {

@@ -100,12 +100,12 @@
 		<div class="table-wrapper">
 			<table>
 				<caption>
-					ALL CRYPTO USERS
+					ALL USERS
 				</caption>
 
 				<div class="">
 					<a
-						href="/adminLanding"
+						href="/admin"
 						style="
 							text-align: center;
 							margin-left: 5px;
@@ -117,16 +117,30 @@
 						">
 						Back
 					</a>
+
+					<a
+						href="/"
+						style="
+							text-align: center;
+							margin-left: 5px;
+							background-color: red;
+							padding: 10px 30px;
+							border-radius: 10px;
+							color: white;
+							text-decoration: none;
+						">
+						Logout
+					</a>
 				</div>
 				<%- include ('./partials/messages') %>
 				<thead>
 					<tr>
 						<th scope="col">Full Name</th>
 						<th scope="col">Email</th>
-						<th scope="col">Telephone</th>
+						<th scope="col">Status</th>
 
 						<th scope="col">UPDATE</th>
-						<th scope="col">DELETE</th>
+						<!-- <th scope="col">DELETE</th> -->
 					</tr>
 				</thead>
 				<tbody>
@@ -134,7 +148,7 @@
 					<tr>
 						<td><%= ticket.fullname %></td>
 						<td><%= ticket.email %></td>
-						<td><%= ticket.telephone %></td>
+						<td><%= ticket.accountStatus %></td>
 						<td>
 							<a
 								href="/edit-cryptouser/<%= ticket._id %>"
@@ -145,10 +159,10 @@
 									border-radius: 5px;
 									padding: 5px 10px;
 								"
-								>Edit</a
+								>Edit User</a
 							>
 						</td>
-						<td>
+						<!-- <td>
 							<a
 								href="/delete-cryptouser/<%= ticket._id %>"
 								style="
@@ -160,7 +174,7 @@
 								"
 								>Delete</a
 							>
-						</td>
+						</td> -->
 					</tr>
 					<% }); %>
 				</tbody>

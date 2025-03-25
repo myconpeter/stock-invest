@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Design by foolishdeveloper.com -->
+		<title>Admin</title>
+
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
+			rel="stylesheet" />
+		<!--Stylesheet-->
+		<style media="screen">
+			*,
+			*:before,
+			*:after {
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+			}
+			body {
+				background-color: whitesmoke;
+			}
+			.background {
+				position: absolute;
+				transform: translate(-50%, -50%);
+				left: 50%;
+				top: 50%;
+			}
+			.background .shape {
+				position: absolute;
+				border-radius: 50%;
+			}
+
+			form {
+				background-color: black;
+				height: 100%;
+			}
+			form * {
+				font-family: 'Poppins', sans-serif;
+				color: #ffffff;
+				letter-spacing: 0.5px;
+				outline: none;
+				border: none;
+			}
+			form h3 {
+				font-size: 32px;
+				font-weight: 500;
+				line-height: 42px;
+				text-align: center;
+			}
+
+			input {
+				display: block;
+				height: 50px;
+				width: 100%;
+				background-color: rgba(255, 255, 255, 0.07);
+				border-radius: 3px;
+				padding: 0 10px;
+				margin-top: 8px;
+				font-size: 14px;
+				font-weight: 300;
+			}
+			::placeholder {
+				color: #e5e5e5;
+			}
+			button {
+				margin-top: 50px;
+				width: 100%;
+				background-color: #080710;
+				color: white;
+				padding: 15px 0;
+				font-size: 18px;
+				font-weight: 600;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+			p {
+				margin-left: 10px;
+			}
+		</style>
+	</head>
+	<body style="height: 100%">
+		<div style="height: 100%">
+			<form
+				style="height: 100%"
+				action="/edit-cryptouser/<%= ticket._id %>"
+				method="POST">
+				<%- include ('./partials/messages') %>
+				<h3>Edit User Details <%= ticket.name %></h3>
+
+				<p>FullName</p>
+				<input
+					type="text"
+					placeholder="User fullname"
+					id="name"
+					name="fullname"
+					value="<%= ticket.fullname %>"
+					readonly />
+				<p>Email</p>
+				<input
+					type="text"
+					placeholder="email"
+					name="email"
+					value="<%= ticket.email %>"
+					readonly />
+
+				<!-- <input
+					type="text"
+					placeholder="phone number"
+					name="telephone"
+					value="<%= ticket.telephone %>" /> -->
+				<p>UserName</p>
+				<input
+					type="text"
+					placeholder="username"
+					name="username"
+					value="<%= ticket.username %>" />
+				<p>Current Balance</p>
+				<input
+					type="text"
+					placeholder="Account Balance"
+					name="accountBalance"
+					value="<%= ticket.accountBalance %>" />
+				<p>Investment Amount</p>
+				<input
+					type="text"
+					placeholder="Total Profit"
+					name="totalProfit"
+					value="<%= ticket.totalProfit %>" />
+				<p>Profit / Loss</p>
+				<input
+					type="text"
+					placeholder="Total Bonus"
+					name="totalBonus"
+					value="<%= ticket.totalBonus %>" />
+
+				<p>Withdrawal</p>
+				<input
+					type="text"
+					placeholder="withdrawal"
+					name="withdrawal"
+					value="<%= ticket.withdrawal %>" />
+
+				<p>Total Deposit</p>
+				<input
+					type="text"
+					placeholder="deposit"
+					name="deposit"
+					value="<%= ticket.deposit %>" />
+
+				<button type="submit">Edit User</button>
+			</form>
+		</div>
+	</body>
+</html>
