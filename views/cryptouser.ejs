@@ -1,184 +1,138 @@
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stock Invest Trades | Admin Console</title>
 
-		<title>ADMIN</title>
+    <!-- Absolute Brand Favicon Path Tracking -->
+    <link
+      rel="icon"
+      href="/storage/app/public/photos/b6kcKsqH4Ns67EZpCTZxhuW1CPTjMNqkOlAdpcA5.png"
+      type="image/png"
+    />
 
-		<style>
-			table {
-				border: 1px solid #ccc;
-				border-collapse: collapse;
-				margin: 0;
-				padding: 0;
-				width: 100%;
-				table-layout: fixed;
-			}
+    <!-- System Compiled Tailwind Utility Matrix -->
+    <link href="/src/output.css" rel="stylesheet" />
+  </head>
+  <body class="bg-[#0d0e12] text-gray-200 antialiased font-sans min-vh-100 flex flex-col justify-between">
+    
+    <!-- Top Workspace Wrapper Area -->
+    <main class="flex-grow p-4 md:p-8">
+      <div class="max-w-7xl mx-auto">
+        
+        <!-- Dashboard Branding Control Header Row -->
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 bg-[#14161d] border border-[#222530] p-6 rounded-2xl">
+          <div>
+            <span class="text-xs font-bold text-yellow-500 uppercase tracking-widest block mb-1">Root Terminal</span>
+            <h1 class="text-2xl font-bold text-white tracking-tight">System User Directory</h1>
+          </div>
+          
+          <!-- Command Navigation Action Array -->
+          <div class="flex items-center gap-3">
+            <a
+              href="/admin-logout"
+              class="px-4 py-2 text-xs font-semibold uppercase tracking-wider bg-red-950/40 hover:bg-red-900/60 text-red-400 border border-red-900/40 rounded-xl transition duration-200"
+            >
+              LOGOUT
+            </a>
+          </div>
+        </div>
 
-			table caption {
-				font-size: 1.5em;
-				margin: 0.5em 0 0.75em;
-			}
+        <!-- Dynamic Server Notification Alerts Anchor -->
+        <% if(typeof success_msg != 'undefined' && success_msg != '') { %>
+          <div class="mb-6 p-4 bg-emerald-950/40 border border-emerald-800/40 text-emerald-400 text-sm font-medium rounded-xl text-center">
+            <%= success_msg %>
+          </div>
+        <% } %>
+        <% if(typeof error_msg != 'undefined' && error_msg != '') { %>
+          <div class="mb-6 p-4 bg-red-950/40 border border-red-800/40 text-red-400 text-sm font-medium rounded-xl text-center">
+            <%= error_msg %>
+          </div>
+        <% } %>
 
-			table tr {
-				background-color: #f8f8f8;
-				border: 1px solid #ddd;
-				padding: 0.35em;
-			}
+        <!-- Core Grid System Container -->
+        <div class="bg-[#14161d] border border-[#222530] rounded-2xl overflow-hidden shadow-2xl">
+          <div class="overflow-x-auto w-full">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-[#1e222d] border-b border-[#222530] text-xs font-bold uppercase tracking-wider text-gray-400">
+                  <th class="py-4 px-6">Investor Identity</th>
+                  <th class="py-4 px-6">Email Registration Address</th>
+                  <th class="py-4 px-6 text-center">Status Index</th>
+                  <th class="py-4 px-6 text-right text-gray-400">Control Parameters</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-[#222530] text-sm font-medium">
+                <% tickets.forEach(function(ticket){ %>
+                  <tr class="hover:bg-[#1a1d26] transition-colors duration-150">
+                    
+                    <!-- Identity Cell Block -->
+                    <td class="py-4 px-6 text-white font-semibold whitespace-nowrap">
+                      <%= ticket.fullname %>
+                      <span class="block text-xs font-mono font-normal text-gray-500 mt-0.5">@<%= ticket.username || 'no-username' %></span>
+                    </td>
+                    
+                    <!-- Email Network Coordinates Cell -->
+                    <td class="py-4 px-6 text-gray-300 whitespace-nowrap">
+                      <%= ticket.email %>
+                    </td>
+                    
+                    <!-- Status Toggle Control Engine Cell -->
+                    <td class="py-4 px-6 text-center whitespace-nowrap">
+                      <form action="/toggle-status/<%= ticket._id %>" method="POST" class="inline">
+                        <button 
+                          type="submit" 
+                          title="Click to toggle access mode status"
+                          class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide transition duration-150 transform active:scale-95 <%= ticket.accountStatus === 'Active' ? 'bg-emerald-950/60 border border-emerald-800 text-emerald-400 hover:bg-emerald-900/40' : 'bg-amber-950/60 border border-amber-800 text-amber-400 hover:bg-amber-900/40' %>"
+                        >
+                          <span class="w-1.5 h-1.5 rounded-full mr-1.5 <%= ticket.accountStatus === 'Active' ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400' %>"></span>
+                          <%= ticket.accountStatus || 'Active' %>
+                        </button>
+                      </form>
+                    </td>
+                    
+                    <!-- Destructive/Constructive Administration Options -->
+                    <td class="py-4 px-6 text-right whitespace-nowrap">
+                      <div class="flex items-center justify-end gap-2">
+                        <a
+                          href="/edit-cryptouser/<%= ticket._id %>"
+                          class="px-3 py-1.5 text-xs font-bold uppercase tracking-wide bg-yellow-500 hover:bg-yellow-600 text-[#0d0e12] rounded-lg transition duration-150"
+                        >
+                          Edit Profile
+                        </a>
+                        <a
+                          href="/delete-cryptouser/<%= ticket._id %>"
+                          onclick="return confirm('Are you completely sure you want to permanently erase this investor instance portfolio? This action cannot be reverted.');"
+                          class="px-3 py-1.5 text-xs font-bold uppercase tracking-wide bg-red-950/40 hover:bg-red-600 border border-red-900/60 hover:border-red-600 text-red-400 hover:text-white rounded-lg transition duration-200"
+                        >
+                          Delete
+                        </a>
+                      </div>
+                    </td>
 
-			table th,
-			table td {
-				padding: 0.625em;
-				text-align: center;
-			}
+                  </tr>
+                <% }); %>
+                
+                <% if(tickets.length === 0) { %>
+                  <tr>
+                    <td colspan="4" class="py-12 text-center text-gray-500 font-mono text-xs uppercase tracking-widest">
+                      Zero active registry database accounts documented
+                    </td>
+                  </tr>
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+        </div>
 
-			table th {
-				font-size: 0.85em;
-				letter-spacing: 0.1em;
-				text-transform: uppercase;
-			}
+      </div>
+    </main>
 
-			@media screen and (max-width: 600px) {
-				table {
-					border: 0;
-				}
+    <!-- Unified Master Layout Administrative Footer -->
+    <footer class="w-full text-center py-6 text-xs text-[#4b526d] tracking-wide border-t border-[#14161d] bg-[#0b0c10]">
+      <p>&copy; Copyright <%= new Date().getFullYear() %> Stock Invest Trades &bull; Dashboard Console Engine</p>
+    </footer>
 
-				table caption {
-					font-size: 1.3em;
-				}
-
-				table thead {
-					border: none;
-					clip: rect(0 0 0 0);
-					height: 1px;
-					margin: -1px;
-					overflow: hidden;
-					padding: 0;
-					position: absolute;
-					width: 1px;
-				}
-
-				table tr {
-					border-bottom: 3px solid #ddd;
-					display: block;
-					margin-bottom: 0.625em;
-				}
-
-				table td {
-					border-bottom: 1px solid #ddd;
-					display: block;
-					font-size: 0.8em;
-					text-align: right;
-				}
-
-				table td::before {
-					/*
-    * aria-label has no advantage, it won't be read inside a table
-    content: attr(aria-label);
-    */
-					content: attr(data-label);
-					float: left;
-					font-weight: bold;
-					text-transform: uppercase;
-				}
-
-				table td:last-child {
-					border-bottom: 0;
-				}
-			}
-
-			/* general styling */
-			body {
-				font-family: 'Open Sans', sans-serif;
-				line-height: 1.25;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="table-wrapper">
-			<table>
-				<caption>
-					ALL USERS
-				</caption>
-
-				<div class="">
-					<a
-						href="/admin"
-						style="
-							text-align: center;
-							margin-left: 5px;
-							background-color: blue;
-							padding: 10px 30px;
-							border-radius: 10px;
-							color: white;
-							text-decoration: none;
-						">
-						Back
-					</a>
-
-					<a
-						href="/"
-						style="
-							text-align: center;
-							margin-left: 5px;
-							background-color: red;
-							padding: 10px 30px;
-							border-radius: 10px;
-							color: white;
-							text-decoration: none;
-						">
-						Logout
-					</a>
-				</div>
-				<%- include ('./partials/messages') %>
-				<thead>
-					<tr>
-						<th scope="col">Full Name</th>
-						<th scope="col">Email</th>
-						<th scope="col">Status</th>
-
-						<th scope="col">UPDATE</th>
-						<!-- <th scope="col">DELETE</th> -->
-					</tr>
-				</thead>
-				<tbody>
-					<% tickets.forEach(function(ticket){ %>
-					<tr>
-						<td><%= ticket.fullname %></td>
-						<td><%= ticket.email %></td>
-						<td><%= ticket.accountStatus %></td>
-						<td>
-							<a
-								href="/edit-cryptouser/<%= ticket._id %>"
-								style="
-									background-color: darkgreen;
-									color: white;
-									font-size: 20px;
-									border-radius: 5px;
-									padding: 5px 10px;
-								"
-								>Edit User</a
-							>
-						</td>
-						<!-- <td>
-							<a
-								href="/delete-cryptouser/<%= ticket._id %>"
-								style="
-									background-color: red;
-									color: white;
-									font-size: 20px;
-									border-radius: 5px;
-									padding: 5px 10px;
-								"
-								>Delete</a
-							>
-						</td> -->
-					</tr>
-					<% }); %>
-				</tbody>
-			</table>
-		</div>
-	</body>
+  </body>
 </html>

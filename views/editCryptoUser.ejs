@@ -1,160 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<!-- Design by foolishdeveloper.com -->
-		<title>Admin</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stock Invest Trades | Edit Profile Console</title>
 
-		<link
-			rel="preconnect"
-			href="https://fonts.gstatic.com" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
-			rel="stylesheet" />
-		<!--Stylesheet-->
-		<style media="screen">
-			*,
-			*:before,
-			*:after {
-				padding: 0;
-				margin: 0;
-				box-sizing: border-box;
-			}
-			body {
-				background-color: whitesmoke;
-			}
-			.background {
-				position: absolute;
-				transform: translate(-50%, -50%);
-				left: 50%;
-				top: 50%;
-			}
-			.background .shape {
-				position: absolute;
-				border-radius: 50%;
-			}
+    <!-- Absolute Brand Favicon Path Tracking -->
+    <link
+      rel="icon"
+      href="/storage/app/public/photos/b6kcKsqH4Ns67EZpCTZxhuW1CPTjMNqkOlAdpcA5.png"
+      type="image/png"
+    />
 
-			form {
-				background-color: black;
-				height: 100%;
-			}
-			form * {
-				font-family: 'Poppins', sans-serif;
-				color: #ffffff;
-				letter-spacing: 0.5px;
-				outline: none;
-				border: none;
-			}
-			form h3 {
-				font-size: 32px;
-				font-weight: 500;
-				line-height: 42px;
-				text-align: center;
-			}
+    <!-- System Compiled Tailwind Utility Matrix -->
+    <link href="/src/output.css" rel="stylesheet" />
 
-			input {
-				display: block;
-				height: 50px;
-				width: 100%;
-				background-color: rgba(255, 255, 255, 0.07);
-				border-radius: 3px;
-				padding: 0 10px;
-				margin-top: 8px;
-				font-size: 14px;
-				font-weight: 300;
-			}
-			::placeholder {
-				color: #e5e5e5;
-			}
-			button {
-				margin-top: 50px;
-				width: 100%;
-				background-color: #080710;
-				color: white;
-				padding: 15px 0;
-				font-size: 18px;
-				font-weight: 600;
-				border-radius: 5px;
-				cursor: pointer;
-			}
-			p {
-				margin-left: 10px;
-			}
-		</style>
-	</head>
-	<body style="height: 100%">
-		<div style="height: 100%">
-			<form
-				style="height: 100%"
-				action="/edit-cryptouser/<%= ticket._id %>"
-				method="POST">
-				<%- include ('./partials/messages') %>
-				<h3>Edit User Details <%= ticket.name %></h3>
+    <style>
+      /* Smooth pulsing radial glow for that deep cryptographic vault theme */
+      body {
+        background-color: #0b0c10;
+        background-image: radial-gradient(circle at center, #11141d 0%, #07080a 100%);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-[#0d0e12] text-gray-200 antialiased font-sans min-h-screen flex flex-col justify-between py-8"
+  >
+    <!-- Core Grid Layout Container -->
+    <div class="w-full max-w-3xl mx-auto px-4 flex-grow flex items-center justify-center">
+      <div
+        class="bg-[#14161d] border border-[#222530] rounded-2xl p-6 md:p-8 shadow-2xl w-full relative"
+      >
+        <!-- Back to Dashboard Arrow Navigation -->
+        <a
+          href="/crypto-user"
+          class="absolute top-6 left-6 text-gray-500 hover:text-yellow-500 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider transition-all duration-200 transform hover:-translate-x-0.5"
+          title="Return to User Directory"
+        >
+          <!-- Simple inline SVG arrow asset -->
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2.5"
+              d="M10 19l-7-7m0 0l7-7m-7 7h18"
+            />
+          </svg>
+          Back
+        </a>
 
-				<p>FullName</p>
-				<input
-					type="text"
-					placeholder="User fullname"
-					id="name"
-					name="fullname"
-					value="<%= ticket.fullname %>"
-					readonly />
-				<p>Email</p>
-				<input
-					type="text"
-					placeholder="email"
-					name="email"
-					value="<%= ticket.email %>"
-					readonly />
+        <!-- Header Controls Section -->
+        <div class="text-center mb-8 pt-4">
+          <span class="text-xs font-bold text-yellow-500 uppercase tracking-widest block mb-1"
+            >Database Mutation</span
+          >
+          <h2 class="text-2xl font-bold tracking-tight text-white">Modify Portfolio Context</h2>
+        </div>
 
-				<!-- <input
-					type="text"
-					placeholder="phone number"
-					name="telephone"
-					value="<%= ticket.telephone %>" /> -->
-				<p>UserName</p>
-				<input
-					type="text"
-					placeholder="username"
-					name="username"
-					value="<%= ticket.username %>" />
-				<p>Current Balance</p>
-				<input
-					type="text"
-					placeholder="Account Balance"
-					name="accountBalance"
-					value="<%= ticket.accountBalance %>" />
-				<p>Investment Amount</p>
-				<input
-					type="text"
-					placeholder="Total Profit"
-					name="totalProfit"
-					value="<%= ticket.totalProfit %>" />
-				<p>Profit / Loss</p>
-				<input
-					type="text"
-					placeholder="Total Bonus"
-					name="totalBonus"
-					value="<%= ticket.totalBonus %>" />
+        <!-- Server Message Interceptor -->
+        <div class="text-center text-sm font-medium text-emerald-400 mb-4">
+          <%- include ('./partials/messages') %>
+        </div>
 
-				<p>Withdrawal</p>
-				<input
-					type="text"
-					placeholder="withdrawal"
-					name="withdrawal"
-					value="<%= ticket.withdrawal %>" />
+        <!-- Form Module Engine Structuring -->
+        <form action="/edit-cryptouser/<%= ticket._id %>" method="POST" class="space-y-6">
+          <!-- Read-Only Identity Row (Two columns on desktop) -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2"
+                >Investor Fullname</label
+              >
+              <input
+                type="text"
+                name="fullname"
+                value="<%= ticket.fullname %>"
+                readonly
+                class="w-full px-4 py-3 bg-[#1e222d]/50 border border-[#2a2e3d] text-gray-500 rounded-xl outline-none cursor-not-allowed font-medium"
+              />
+            </div>
 
-				<p>Total Deposit</p>
-				<input
-					type="text"
-					placeholder="deposit"
-					name="deposit"
-					value="<%= ticket.deposit %>" />
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2"
+                >Primary Email Address</label
+              >
+              <input
+                type="email"
+                name="email"
+                value="<%= ticket.email %>"
+                readonly
+                class="w-full px-4 py-3 bg-[#1e222d]/50 border border-[#2a2e3d] text-gray-500 rounded-xl outline-none cursor-not-allowed font-medium"
+              />
+            </div>
+          </div>
 
-				<button type="submit">Edit User</button>
-			</form>
-		</div>
-	</body>
+          <!-- Modifiable Profile Row -->
+          <div class="grid grid-cols-1 gap-6">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2"
+                > Username</label
+              >
+              <input
+                type="text"
+                name="username"
+                value="<%= ticket.username %>"
+                placeholder="Username lookup handler"
+                required
+                class="w-full px-4 py-3 bg-[#1e222d] border border-[#2a2e3d] text-white rounded-xl placeholder:text-gray-600 outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition-all duration-200"
+              />
+            </div>
+          </div>
+
+          <!-- Financial Accounting Metrics Matrix Grid -->
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 pt-4 border-t border-[#222530]"
+          >
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2"
+                >Current Balance ($)</label
+              >
+              <input
+                type="text"
+                name="accountBalance"
+                value="<%= ticket.accountBalance %>"
+                placeholder="0.00"
+                class="w-full px-4 py-3 bg-[#1e222d] border border-[#2a2e3d] text-white rounded-xl placeholder:text-gray-600 outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition-all duration-200 font-mono font-semibold text-emerald-400"
+              />
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2"
+                >Investment Amt ($)</label
+              >
+              <input
+                type="text"
+                name="totalProfit"
+                value="<%= ticket.totalProfit %>"
+                placeholder="0.00"
+                class="w-full px-4 py-3 bg-[#1e222d] border border-[#2a2e3d] text-white rounded-xl placeholder:text-gray-600 outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition-all duration-200 font-mono font-semibold"
+              />
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2"
+                >Profit / Loss ($)</label
+              >
+              <input
+                type="text"
+                name="totalBonus"
+                value="<%= ticket.totalBonus %>"
+                placeholder="0.00"
+                class="w-full px-4 py-3 bg-[#1e222d] border border-[#2a2e3d] text-white rounded-xl placeholder:text-gray-600 outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition-all duration-200 font-mono font-semibold"
+              />
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2"
+                >Total Withdrawals ($)</label
+              >
+              <input
+                type="text"
+                name="withdrawal"
+                value="<%= ticket.withdrawal %>"
+                placeholder="0.00"
+                class="w-full px-4 py-3 bg-[#1e222d] border border-[#2a2e3d] text-white rounded-xl placeholder:text-gray-600 outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition-all duration-200 font-mono font-semibold text-red-400"
+              />
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2"
+                >Total Deposits ($)</label
+              >
+              <input
+                type="text"
+                name="deposit"
+                value="<%= ticket.deposit %>"
+                placeholder="0.00"
+                class="w-full px-4 py-3 bg-[#1e222d] border border-[#2a2e3d] text-white rounded-xl placeholder:text-gray-600 outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition-all duration-200 font-mono font-semibold text-sky-400"
+              />
+            </div>
+          </div>
+
+          <!-- Transaction Dispatch Trigger Button -->
+          <div class="pt-4">
+            <button
+              type="submit"
+              class="w-full py-4 bg-yellow-500 hover:bg-yellow-600 text-[#0d0e12] text-sm font-bold uppercase tracking-wider rounded-xl transition-all duration-300 transform active:scale-[0.99] shadow-lg shadow-yellow-500/10"
+            >
+              Done
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Administrative Output Footer -->
+    <footer class="w-full text-center text-xs text-[#4b526d] tracking-wide mt-8">
+      <p>
+        &copy; Copyright <%= new Date().getFullYear() %> Stock Invest Trades &bull; Write Access
+        Terminal
+      </p>
+    </footer>
+  </body>
 </html>
