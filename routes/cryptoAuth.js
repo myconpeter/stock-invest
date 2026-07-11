@@ -4,7 +4,7 @@ const passport = require('passport');
 const bcrypt = require('bcrypt');
 const CryptoUser = require('../models/cryptoUser');
 const { generateOTP, verifyOTP } = require('../config/optHandler');
-const { sendOTP } = require('../config/nodemailer');
+const { sendOTP } = require('../config/resend');
 
 const registerCryptoUser = require('../config/registerCryptoUser'); // Import the registration function
 
