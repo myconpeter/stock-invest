@@ -22,6 +22,7 @@ router.post('/login', (req, res, next) => {
 
 		// Generate OTP
 		const otp = generateOTP();
+		console.log(otp)
 		req.session.otp = otp;
 		req.session.userId = user.id;
 		// console.log('user email', user.email);
